@@ -1,2 +1,6 @@
-# bhartipay-node
-NodeJs Integration Kit
+# Bhartipay NodeJs Library
+
+### Demo
+```sh
+node server.js
+```
