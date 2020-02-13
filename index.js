@@ -2,8 +2,8 @@ var request = require('request');
 var sha256 = require('js-sha256');
 
 var payment_url = {
-    'prod': 'https://merchant.bhartipay.com/crm/jsp/paymentrequest',
-    'test': 'https://uat.bhartipay.com/crm/jsp/paymentrequest'
+    'prod': 'https://merchant.subpe.com/crm/jsp/paymentrequest',
+    'test': 'https://uat.subpe.com/crm/jsp/paymentrequest'
 };
 
 var API = {
@@ -15,12 +15,12 @@ var API = {
 
 module.exports = {
     headers: {
-        'authorization': 'YOUR-AUTHORIZATION-HEADER' // will be provided by bhartipay
+        'authorization': 'YOUR-AUTHORIZATION-HEADER' // will be provided by subpe
     },
 
     credentails: {
-        'pay_id': 'YOUR-MERCHANT-KEY', // will be provided by bhartipay
-        'salt': 'YOUR-SALT-KEY', // will be provided by bhartipay
+        'pay_id': 'YOUR-MERCHANT-KEY', // will be provided by subpe
+        'salt': 'YOUR-SALT-KEY', // will be provided by subpe
     },
 
     mode: 'test',
@@ -40,9 +40,9 @@ module.exports = {
 
     getPaymentUrl: function() {
         if (this.mode == 'prod') {
-            return 'https://merchant.bhartipay.com/crm/jsp/paymentrequest';
+            return 'https://merchant.subpe.com/crm/jsp/paymentrequest';
         } else {
-            return 'https://uat.bhartipay.com/crm/jsp/paymentrequest';
+            return 'https://uat.subpe.com/crm/jsp/paymentrequest';
         }
     },
 

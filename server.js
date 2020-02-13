@@ -1,14 +1,14 @@
-var bhartipay = require('./index.js');
+var subpe = require('./index.js');
 const http = require('http');
 const { parse } = require('querystring');
 
 const hostname = '127.0.0.1';
 const port = 3000;
-const bhartipay_payid = 'XXXXXXXXXXXXXXXX';
-const bhartipay_salt = 'XXXXXXXXXXXXXXXX';
+const subpe_payid = 'XXXXXXXXXXXXXXXX';
+const subpe_salt = 'XXXXXXXXXXXXXXXX';
 const server = http.createServer((req, res) => {
-    bhartipay.isProdMode(false);
-    bhartipay.setCredentails(bhartipay_payid, bhartipay_salt);
+    subpe.isProdMode(false);
+    subpe.setCredentails(subpe_payid, subpe_salt);
     switch (req.url) {
         case "/":
         res.statusCode = 200;
@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
         res.write('<html>');
         res.write('<head>');
         res.write('<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />');
-        res.write('<title>Bhartipay Demo Merchant Checkout Page</title>');
+        res.write('<title>Subpe Demo Merchant Checkout Page</title>');
         res.write('<style type="text/css" media="screen">');
         res.write('body{width:100%;margin:0 auto;background-color:#e4eff5}');
         res.write('.signupbox{margin:20px auto 0;padding:0;font:normal 12px arial;color:#555;background:#fff;border:1px solid #d0d0d0;border-radius:5px;-webkit-box-shadow:-1px 3px 8px -1px rgba(0,0,0,0.75);-moz-box-shadow:-1px 3px 8px -1px rgba(0,0,0,0.75);box-shadow:-1px 3px 8px -1px rgba(0,0,0,0.75)}');
@@ -62,7 +62,7 @@ const server = http.createServer((req, res) => {
         res.write('<tr>');
         res.write('<td class="labelfont">MERCHANT NAME: </td>');
         res.write('<td class="form-control">');
-        res.write('<input type="text" name="MERCHANTNAME" class="signuptextfield" value="Bhartipay Demo" autocomplete="off"/>');
+        res.write('<input type="text" name="MERCHANTNAME" class="signuptextfield" value="Subpe Demo" autocomplete="off"/>');
         res.write('</td>');
         res.write('</tr>');
         res.write('<tr>');
@@ -122,7 +122,7 @@ const server = http.createServer((req, res) => {
         res.write('<tr>');
         res.write('<td class="labelfont">CUSTOMER EMAILID: </td>');
         res.write('<td class="form-control">');
-        res.write('<input type="text" name="CUST_EMAIL" class="signuptextfield" value="test.user@bhartipay.com" autocomplete="off"/>');
+        res.write('<input type="text" name="CUST_EMAIL" class="signuptextfield" value="test.user@subpe.com" autocomplete="off"/>');
         res.write('</td>');
         res.write('</tr>');
         res.write('<tr>');
@@ -186,13 +186,13 @@ const server = http.createServer((req, res) => {
                         CUST_SHIP_STREET_ADDRESS1: 'Vyapar Marg, Sector 4',
                         CUST_SHIP_ZIP: '201301',
                         ORDER_ID: result.ORDER_ID,
-                        PAY_ID: bhartipay_payid,
+                        PAY_ID: subpe_payid,
                         PRODUCT_DESC: result.PRODUCT_DESC,
                         RETURN_URL: 'http://' + hostname + ':' + port + '/response',
                         TXNTYPE: 'SALE'
                     }
-                    var transaction = bhartipay.createTransaction(data);
-                    var gateway_url = bhartipay.getPaymentUrl();
+                    var transaction = subpe.createTransaction(data);
+                    var gateway_url = subpe.getPaymentUrl();
                     var form_html = '<form method="post" action="'+gateway_url+'" name="payForm">';
                     var formKeys = Object.keys(transaction);
                     formKeys.forEach(function(key) {

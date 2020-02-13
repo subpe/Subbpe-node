@@ -1,4 +1,4 @@
-# Bhartipay NodeJs Library
+# Subpe NodeJs Library
 
 ### Demo
 ```sh
